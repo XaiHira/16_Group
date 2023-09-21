@@ -1,0 +1,145 @@
+3주차는 이승민 결석하여 
+
+자문자답으로 해보도록 하겠습니다.
+
+
+
+1. C언어와 C++차이를 느꼈는데 어떤 차이를 느꼈나요?
+
+문장의 길이나 코딩의 길이가 차이가 있다고 느꼈고, C++편하고 더간단하다고 느꼈습니다.
+
+이름을 입략하고 출력을 할떄 C++은 
+
+cout << "이름을 입력" ;
+char name[11];
+cin >> name;
+cout << "이름은" << name <<"\n" ;
+
+이렇게 끝나지만
+
+C언어는 
+
+char name;
+
+printf("이름을 입력");
+scnaf("%c\n", name);
+printf("이름은 %c\n", name);
+
+이런 형식으로 짜여 집니다.
+
+이름을 입력하는 것 부터 %c 코드를 적어 문자를 입력, 출력하는 까다로움이 있기에 
+
+C언어에서의 불편함을 느꼈습니다.
+
+하지만 C++에서는 이러한 불편함 없이 바로 변수를 선언을 하고 cin으로 출력이 가능하여
+
+C 보다 C++이 좀 더 이해하기 편하다는 생각이 들었습니다.
+
+
+2. #5.5-3hello1 출력 C
+#include <stdio.h>
+
+int n;
+n = 3;
+
+char c = '#';
+
+int main()
+{
+	printf("%c5.5 - %d", c, n);
+	printf("hello %d\n", 1);
+	return 0;
+}
+
+3.  #5.5-3hello1 출력 C++
+
+#include <iostream>
+
+int main()
+{
+	int n = 3;
+	char c = '#';
+
+	std::cout << c << 5.5 << '-' << n << '\n' << "hello" << '\n' << true << std::endl;
+
+}
+
+4. 원 면적을 계산하고 출력 C
+
+#include <stdio.h>
+#define PI 3.14
+
+int n;
+n = 3;
+
+double area1,
+
+int main()
+{
+	area1 = n * n * PI;
+	printf("면적은 %.2f\n", area1);
+	return 0;
+}
+
+5. 원 면적을 계산하고 출력 C++
+
+#include <iostream>
+using namespace std;
+
+
+double area(int r); 
+double area(int r) {
+	return 3.14 * r * r;
+}
+
+int main()
+{
+	int n = 3;
+	std::cout << "면적은 " << area(n);
+}
+
+
+6. 사각형 면적 높이와 너비를 입력 그리고 면적 출력 C
+
+
+#include <stdio.h>
+
+int w, h;
+double  area2;
+
+int main()
+{
+	printf("사각형 면적 w x h 구함 \n");
+	printf("\n너비를 입력 : ");
+	scanf_s("%d", &w);
+
+	printf("높이를 입력 : ");
+	scanf_s("%d", &h);
+
+	area2 = w * h;
+
+	printf("면적 =>> %.2f", area2);
+
+	return 0;
+}
+
+7. 사각형 면적 높이와 너비를 입력 그리고 면적 출력 C++
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+	cout << "너비를 입력하세요>>";
+	int width;
+	cin >> width;
+	cout << "높이를 입력하세요>>";
+	int height;
+	cin >> height;
+	int area = width * height;
+
+	cout << "면적은 " << area << "\n";
+
+}

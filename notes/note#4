@@ -1,0 +1,332 @@
+프랜드 함수 클래스의 멤버 함수가 아닌 외부의 함수
+프렌드 키어드로 클래스 내에 선언 
+클래스로는 선언하기 힘든 것을 자유롭게 접근할 수 있는 외부함수를 사용을 위해서
+프랜드 함수 3가지 전역함수, 다른 클래스의 멤버 함수, 다른클래스 전체
+
+1.외부함수 equals()를 Rect 클래스에 프렌드로 선언
+class Rect {
+...
+friend bool equals(Rect r, Rect s);
+};
+
+2.RectManager 클래스의 equals() 멤버 함수를 Rect 클래스에 프렌드로 선언
+class Rect {
+.............
+friend bool RectManager::equals(Rect r, Rect s);
+};
+
+3. RectManager 클래스의 모든 멤버 함수를 Rect 클래스에 프렌드로 선언
+class Rect {
+.............
+friend RectManager;
+};
+
+예제1
+
+#include <iostream>
+
+using namespace std;
+class Rect;
+bool equals(Rect r, Rect s);
+class Rect { 
+int width, height;
+public:
+Rect(int width, int height) { this->width = width; this->height = height; }
+friend bool equals(Rect r, Rect s);
+};
+bool equals(Rect r, Rect s) { 
+if(r.width == s.width && r.height == s.height) return true;
+else return false;
+}
+int main() {
+Rect a(3,4), b(4,5);
+if(equals(a, b)) cout << "equal" << endl;
+else cout << "not equal" << endl;
+}
+
+
+실행 >>> not equal
+
+예제2
+
+#include <iostream>
+using namespace std;
+class Rect;
+
+class RectManager { 
+public:
+bool equals(Rect r, Rect s);
+};
+
+class Rect {
+int width, height;
+public:
+Rect(int width, int height) { this->width = width; this->height = height; }
+friend bool RectManager::equals(Rect r, Rect s);
+};
+bool RectManager::equals(Rect r, Rect s) {
+if(r.width == s.width && r.height == s.height) return true;
+
+else return false;
+}
+
+int main() {
+Rect a(3,4), b(3,4);
+RectManager man;
+
+if(man.equals(a, b)) cout << "equal" << endl;
+else cout << "not equal" << endl; 
+
+}
+
+실행 >>> equal
+
+
+#include <iostream>
+using namespace std;
+class Rect;
+
+class RectManager { 
+public:
+bool equals(Rect r, Rect s);
+void copy(Rect& dest, Rect& src);
+};
+
+class Rect {
+
+int width, height;
+
+public:
+Rect(int width, int height) { this->width = width; this->height = height; }
+
+friend RectManager;
+};
+
+bool RectManager::equals(Rect r, Rect s) {
+
+if(r.width == s.width && r.height == s.height) return true;
+
+else return false;
+}
+
+void RectManager::copy(Rect& dest, Rect& src) {
+
+dest.width = src.width; dest.height = src.height;
+
+}
+
+int main() {
+
+Rect a(3,4), b(5,6);
+RectManager man;
+
+man.copy(b, a);
+
+if(man.equals(a, b)) cout << "equal" << endl;
+
+else cout << "not equal" << endl;
+}
+
+실행 >>> equal
+
+예제 2와 같은 값이 나온다.
+객체 b와 a의 크기가 동일하기 때문에
+
+
+연안자 중복
++ 기호를 숫자와 물체에 적용(중복으로도 사용함.)
++ 기호를 숫자가 아닌 곳에 사용
+간결하게 전달
+높은 가독성
+
+정수 더하기
+
+int a=2, b=3, c;
+c = a + b;
+
+문자열
+
+string a="C", c;
+c = a + "++“;
+
+색상
+Color a(BLUE), b(RED), c;
+c = a + b;
+
+배열
+
+SortedArray a(2,5,9), b(3,7,10), c;
+c = a + b; // c = {2,3,5,7,9,10};
+
+중복의 특징
+C++은 연산자만 가능
+피 연산자 타입이 다른 새로운 연산 정의
+연산자는 함수 형태로 구현 
+반드시 클래스와 관계를 가짐
+피연산자의 개수를 바꿀 수 없음
+연산의 우선 순위 변경 안됨
+모든 연산자가 중복 가능하지 않음
+
+
+중복 불가능 연산자 . .* ::범위지정  ?: 3항 연산자
+
+연산자 함수 
+클래스의 멤버 함수로 구현
+외부함수로 구현
+클래스에 프렌드 함수로 선언
+
+형식은 >>> 리턴타입 operator연산자(매개변수리스트);
+
+
+예제4
+
+#include <iostream>
+using namespace std;
+
+class Power {
+
+int kick;
+int punch;
+
+public:
+Power(int kick=0, int punch=0) {
+this->kick = kick; this->punch = punch;
+}
+
+void show();
+
+Power operator+ (Power op2); 
+
+};
+
+
+void Power::show() {
+
+cout << "kick=" << kick << ',' << "punch=" << punch << endl;
+
+}
+
+Power Power::operator+(Power op2) {
+
+Power tmp; 
+tmp.kick = this->kick + op2.kick;
+tmp.punch = this->punch + op2.punch;
+return tmp; 
+
+}
+int main() {
+
+Power a(3,5), b(4,6), c;
+c = a + b; 
+a.show();
+b.show();
+c.show();
+
+}
+
+실행>>>	kick=3,punch=5
+	kick=4,punch=6
+	kick=7,punch=11
+
+
+예제5
+
+#include <iostream>
+using namespace std;
+
+class Power {
+int kick;
+int punch;
+
+public:
+
+Power(int kick=0, int punch=0) {
+this->kick = kick; this->punch = punch;
+}
+
+void show();
+bool operator== (Power op2);
+};
+
+void Power::show() {
+
+cout << "kick=" << kick << ','
+<< "punch=" << punch << endl;
+
+}
+
+bool Power::operator==(Power op2) {
+
+if(kick==op2.kick && punch==op2.punch) return true;
+else return false;
+
+}
+
+int main() {
+
+Power a(3,5), b(3,5);
+a.show();
+b.show();
+
+if(a == b) cout << "두 파워가 같다." << endl;
+else cout << "두 파워가 같지 않다." << endl;
+}
+
+
+실행>>	kick=3,punch=5
+	kick=3,punch=5
+	두 파워가 같다
+
+
+예제6
+
+#include <iostream>
+using namespace std;
+
+class Power {
+int kick;
+int punch;
+
+public:
+Power(int kick=0, int punch=0) {
+this->kick = kick; this->punch = punch;
+}
+
+void show();
+Power& operator+= (Power op2); 
+
+};
+
+void Power::show() {
+cout << "kick=" << kick << ',' << "punch=" << punch << endl;
+}
+
+Power& Power::operator+=(Power op2) {
+kick = kick + op2.kick;
+punch = punch + op2.punch; 
+return *this; 
+}
+
+int main() {
+
+Power a(3,5), b(4,6), c;
+a.show();
+b.show();
+c = a += b; 
+a.show();
+c.show();
+
+}
+
+실행>>>	kick=3,punch=5
+	kick=4,punch=6
+	kick=7,punch=11
+	kick=7,punch=11
+
+단항 연산자
+단항연산자 피연산자가 하나
+종류
+전위 연산자
+
+후위 연산자
+

@@ -1,0 +1,136 @@
+C++의 상속 
+	>> 객체 사이의 상속 관계 없음.
+	>>기본 클래스의 속성과 기능을 파생 클래스에 상속.
+		>>기본 클래스 
+			>>상속 해주는 클래스.
+		>>파생클래스
+			>>상속 받는 클래스.
+	>>기본 클래스에서 파생 클래스로 갈수록 클래스의 개념의 구체화.
+	>>다중 상속을 통해 클래스의 재활용도를 높인다.
+	>>동적 바인딩을 사용.
+	
+	목적
+		>>간결한 클래스
+		>>클래스 분류 & 관리 용이
+		>>클래스 재상용과 확장을 통한 소프트웨어 생산성 향상
+			>>빠른 소프트웨어 생산이 필요
+			>>상속을 받아 새로운 기능을 화장
+		>>상속을 위한 객체지향적 설계 필요 
+
+	선언
+		class Student : public Person {
+		// Person을 상속받는 Student 선언
+			.....
+		};
+		
+		
+		Student >> 파생 클래스 명
+		public >> 상속 접근 지정(가능>>private, protected)
+		Person >> 기본 클래스 명
+
+		>>Student 클래스는 Person 클래스의 멤버를 물려받음.
+		
+		class StudentWorker : public Student {
+		// Student를 상속받는 StudentWorker 선언
+			.....
+		};
+		
+		>>Student가 물려받는 Person의 멤버도 함께 상속받음.
+
+
+	파생 클래스의 객체 구성
+
+		class Point {
+		int x, y; // 한 점 (x,y) 좌표 값
+		public:
+		void set(int x, int y);
+		void showPoint();
+		};
+
+
+		class ColorPoint : public Point { // Point를 상속받음
+		string color; // 점의 색 표현
+		public:
+		void setColor(string color);
+		void showColorPoint();
+		};
+
+
+		>>업 캐스팅(up-casting)
+			>>파생 클래스 포인터 -> 기본 클래스 포인터로 치환
+
+	
+		int main() {
+		ColorPoint cp;
+		ColorPoint *pDer = &cp;
+		Point* pBase = pDer; // 업캐스팅
+		pDer->set(3,4);
+		pBase->showPoint();
+		pDer->setColor("Red");
+		pDer->showColorPoint();
+		pBase->showColorPoint(); // 컴파일 오류
+		}
+
+		
+		>>다운 캐스팅(down-casting)
+			>>기본 클래스의 포인터 -> 파생 클래스 포인터로 치환	
+
+	
+	protected 접근 지정	
+	
+		>>private
+			>>선언된 클래스 내에서만 접근
+			>>파생 클래스에서도 기본 클래스의  private멤버 직법 접근 불가
+		>>public
+			>>선언된 클래스나 외부 어떤 클래스, 모든 외부 함수에 접근 허용
+			>>파생 클래스에서 기본 클래스의 public 멤버 접근 가능			
+		>>protected
+			>>선언된 클래스에서 접근 가능
+			>>파생 클래스에서만 접근 허용
+				>>파생 클래스가 아닌 다른 클래스나 외부 함수에서는 protected 멤버를 접근 할 수 없다
+
+	상속과 생성자, 소멸자
+		>>파생클래스의 객체가 생성이 되면 파생클래스의 생성자와 기본 클래스의 생성작가 모두 생항이 되어진다.
+			그래서 파생 클래스 생성자와 기본 클래스 생성자가 있어야 할까? 라는 의문에 저는
+		
+			만약 기본 클래스가 매개변수를 가진 생성자를 갖고 있다면,파생 클래스도 적절한 매개변수를 전달하여 
+			기본 클래스의 생성자를 호출해야 함. 이는 기본 클래스의 초기화를 수행하기 위함
+				
+			>>파생 클래스의 생성자와 기본 클래스의 생성자가 모두 존재해야 하는 것이 일반적인 패턴. 
+		
+		
+		>>기본 클래스의 생성자가 먼저 실행된 후 파생 클래스의 생성자가 실행이 된다.
+
+	소멸순서
+		>>파생 클래스의 소멸자가 먼저 실행 -> 기본 클래스의 소멸자가 나중에 실행.
+
+
+	상속 지정
+		>> 위서 설명한 public, private, protected의 3가지 중 하나 지정에서 선언
+		>>기본 클래스의 멤버의 접근 속성을 어떻게 계승할지 지정
+			public – 기본 클래스의 protected, public 멤버 속성을 그대로 계승
+			private – 기본 클래스의 protected, public 멤버를 private 계승
+			protected – 기본 클래스의 protected, public 멤버를 protected 계승
+
+	다중 상속
+		>>기기의 컨버전스와 C++의 다중 상속
+		>>문제점
+			>>Base의 멤버가 이중으로 객체에 삽입됨
+			>>동일한 x를 접근하는 프로그램이 서로 다른 x에 접근하는 결과가 있어 잘못된 실행 오류가 발생된다.
+
+	가상 상속
+		>>다중 상속으로 인한 기본 클래스 멤버의 중복 상속을 해결
+		>>파생 클래스의 선언문에서 기본 클래스 앞에 virtual으로 선언
+		>>파생 클래스의 객체가 생성될 떄 기본 클래스의 멤버는 오직 한번만 생성
+			>>기본 클래스의 멤버가 중복하여 생성되는 것을 방지
+			class In : virtual public BaseIO { 
+			// In 클래스는 BaseIO 클래스를 가상 상속함
+					...
+			};
+
+			class Out : virtual public BaseIO {
+			// Out 클래스는 BaseIO 클래스를 가상 상속함
+					...
+			};
+
+

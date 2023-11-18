@@ -1,0 +1,35 @@
+﻿  HW.cpp
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,13): error C2011: 'Shape': 'class' 형식 재정의
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,7): message : 'Shape' 선언을 참조하십시오.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Rect.h(1,21): error C2504: 'Shape': 기본 클래스를 정의하지 않았습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Line.h(1,21): error C2504: 'Shape': 기본 클래스를 정의하지 않았습니다.
+  GraphicEditor.cpp
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,13): error C2011: 'Shape': 'class' 형식 재정의
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,7): message : 'Shape' 선언을 참조하십시오.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Rect.h(1,21): error C2504: 'Shape': 기본 클래스를 정의하지 않았습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Line.h(1,21): error C2504: 'Shape': 기본 클래스를 정의하지 않았습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(15,15): error C2440: '=': 'Line *'에서 'Shape *'(으)로 변환할 수 없습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(15,15): message : 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 괄호가 있는 함수 스타일 캐스트가 필요합니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(21,15): error C2440: '=': 'Rect *'에서 'Shape *'(으)로 변환할 수 없습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(21,15): message : 가리킨 형식이 관련이 없습니다. 변환하려면 reinterpret_cast, C 스타일 캐스트 또는 괄호가 있는 함수 스타일 캐스트가 필요합니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(31,2): error C2027: 정의되지 않은 형식 'Shape'을(를) 사용했습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,7): message : 'Shape' 선언을 참조하십시오.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(32,10): error C2027: 정의되지 않은 형식 'Shape'을(를) 사용했습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,7): message : 'Shape' 선언을 참조하십시오.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(45,9): error C2027: 정의되지 않은 형식 'Shape'을(를) 사용했습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,7): message : 'Shape' 선언을 참조하십시오.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(48,12): error C2027: 정의되지 않은 형식 'Shape'을(를) 사용했습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,7): message : 'Shape' 선언을 참조하십시오.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(49,3): warning C4150: 불완전한 형식 'Shape'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,7): message : 'Shape' 선언을 참조하십시오.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(52,3): error C2027: 정의되지 않은 형식 'Shape'을(를) 사용했습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,7): message : 'Shape' 선언을 참조하십시오.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(52,12): error C2027: 정의되지 않은 형식 'Shape'을(를) 사용했습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,7): message : 'Shape' 선언을 참조하십시오.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(53,3): warning C4150: 불완전한 형식 'Shape'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,7): message : 'Shape' 선언을 참조하십시오.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(63,3): error C2027: 정의되지 않은 형식 'Shape'을(를) 사용했습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,7): message : 'Shape' 선언을 참조하십시오.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\GraphicEditor.cpp(64,9): error C2027: 정의되지 않은 형식 'Shape'을(를) 사용했습니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\Shape.h(1,7): message : 'Shape' 선언을 참조하십시오.
+  코드를 생성하고 있습니다...

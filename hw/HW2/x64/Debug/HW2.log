@@ -1,0 +1,6 @@
+﻿  Shape.cpp
+HW.obj : error LNK2001: 확인할 수 없는 외부 기호 "protected: virtual void __cdecl Rect::draw(void)" (?draw@Rect@@MEAAXXZ)
+HW.obj : error LNK2019: "public: static int __cdecl UI::getMenu(void)" (?getMenu@UI@@SAHXZ)"public: void __cdecl GraphicEditor::run(void)" (?run@GraphicEditor@@QEAAXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
+HW.obj : error LNK2019: "public: static int __cdecl UI::getShapeTypeToInsert(void)" (?getShapeTypeToInsert@UI@@SAHXZ)"public: void __cdecl GraphicEditor::run(void)" (?run@GraphicEditor@@QEAAXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
+HW.obj : error LNK2019: "public: static int __cdecl UI::getShapeIndexToDelete(void)" (?getShapeIndexToDelete@UI@@SAHXZ)"public: void __cdecl GraphicEditor::run(void)" (?run@GraphicEditor@@QEAAXXZ) 함수에서 참조되는 확인할 수 없는 외부 기호
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW2\x64\Debug\HW2.exe : fatal error LNK1120: 4개의 확인할 수 없는 외부 참조입니다.

@@ -1,0 +1,4 @@
+﻿  HW_hwi.cpp
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW4\HW_hwi.cpp(69,15): warning C4200: 비표준 확장이 사용됨: 구조체/공용 구조체의 배열 크기가 0입니다.
+C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW4\HW_hwi.cpp(69,15): message : 이 멤버는 기본값으로 설정된 생성자 또는 복사/이동 대입 연산자에서 무시됩니다.
+  HW4.vcxproj -> C:\Users\XAIHIRA\Documents\Visual Studio 2022\project\HW4\x64\Debug\HW4.exe
